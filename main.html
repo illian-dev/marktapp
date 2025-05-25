@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Homescreen</title>
+    <style>
+        /* Grundlegende Stile für den Körper der Seite */
+        body {
+            margin: 0; /* Entfernt den Standardabstand */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* iOS-ähnliche Schriftart */
+            /* Ersetze die folgende URL durch dein gewünschtes Hintergrundbild */
+            background-image: url('https://verbund.edeka/verbund/header_schlicht-mit-herz_4zu3.jpg?impolicy=4x3&imwidth=1200&imdensity=1');
+            background-size: cover; /* Stellt sicher, dass das Hintergrundbild den ganzen Bildschirm bedeckt */
+            background-position: center; /* Zentriert das Hintergrundbild */
+            background-attachment: fixed; /* Hält das Hintergrundbild beim Scrollen fest */
+            color: white; /* Standardtextfarbe, gut für dunkle Hintergründe */
+            display: flex;
+            justify-content: center; /* Zentriert den Homescreen-Container horizontal */
+            align-items: flex-start; /* Richtet den Homescreen-Container oben aus */
+            min-height: 100vh; /* Stellt sicher, dass der Body mindestens die volle Bildschirmhöhe einnimmt */
+            padding-top: 40px; /* Etwas Abstand oben für die Apps */
+            padding-bottom: 40px; /* Etwas Abstand unten */
+        }
+
+        /* Container für alle Apps (das Gitter) */
+        .homescreen {
+            display: grid;
+            /* Definiert 3 Spalten, jede nimmt den gleichen verfügbaren Platz ein */
+            grid-template-columns: repeat(3, 1fr);
+            /* Definiert bis zu 5 Reihen, die Höhe passt sich dem Inhalt an */
+            grid-template-rows: repeat(5, auto);
+            gap: 20px; /* Abstand zwischen den Apps */
+            padding: 50px; /* Innenabstand des Homescreen-Containers */
+            max-width: 360px; /* Maximale Breite des Homescreen, typisch für schmale Handy-Bildschirme */
+            margin: 0 auto; /* Zentriert den Homescreen falls er schmaler als der body ist */
+        }
+
+        /* Stil für jedes einzelne App-Element */
+        .app {
+            display: flex;
+            flex-direction: column; /* Ordnet Icon und Name untereinander an */
+            align-items: center; /* Zentriert Icon und Name horizontal */
+            text-decoration: none; /* Entfernt die Unterstreichung von Links */
+            color: white; /* Textfarbe für den App-Namen */
+            text-align: center; /* Zentriert den App-Namen, falls er umbricht */
+        }
+
+        /* Stil für das App-Icon */
+        .app-icon {
+            width: 70px;  /* Breite des Icons */
+            height: 70px; /* Höhe des Icons */
+            background-color: rgba(255, 255, 255, 0.3); 
+/* Leichter, transparenter Hintergrund für das Icon */
+
+border-radius: 50px; 
+/* Abgerundete Ecken, typisch für iOS-Icons */
+            display: flex;
+            justify-content: center; /* Zentriert das Bild im Icon-Container horizontal */
+            align-items: center; /* Zentriert das Bild im Icon-Container vertikal */
+            overflow: hidden; /* Stellt sicher, dass das Bild innerhalb der Rundung bleibt */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Leichter Schatten für einen Tiefeneffekt */
+            margin-bottom: 8px; /* Abstand zwischen Icon und Name */
+        }
+
+        .app-icon img {
+            max-width: 100%;   /* Stellt sicher, dass das Bild nicht größer als der Icon-Container ist */
+            max-height: 100%;  /* Stellt sicher, dass das Bild nicht größer als der Icon-Container ist */
+            object-fit: cover; /* Sorgt dafür, dass das Bild den Icon-Bereich füllt, ohne das Seitenverhältnis zu verzerren */
+            border-radius: 18px; /* Stellt sicher, dass auch das Bild abgerundete Ecken hat, falls es nicht transparent ist */
+        }
+
+        /* Stil für den App-Namen */
+        .app-name {
+            font-size: 11px; /* Schriftgröße des App-Namens */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6); /* Textschatten für bessere Lesbarkeit auf variablen Hintergründen */
+            /* Begrenzt die Breite und ermöglicht den Textumbruch mit Auslassungspunkten, falls der Name zu lang ist */
+            width: 90px; /* Breite des Namensbereichs */
+            white-space: nowrap; /* Verhindert unerwünschten Zeilenumbruch */
+            overflow: hidden; /* Versteckt überstehenden Text */
+            text-overflow: ellipsis; /* Fügt "..." hinzu, wenn Text überläuft */
+        }
+
+        /* CSS-Klasse zum Ausblenden einer App */
+        /* Füge diese Klasse zum <a>-Tag einer App hinzu, um sie auszublenden */
+        .app-hidden {
+            display: none !important; /* Versteckt das Element vollständig */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="homescreen">
+
+
+
+
+<!--          APP 1          -->
+
+        <a href="https://www.edekahr-mitarbeiterportal.de/" class="app">
+            <div class="app-icon">
+                <img src="https://cdn.iconscout.com/icon/free/png-512/free-clock-icon-download-in-svg-png-gif-file-formats--time-watch-alarm-ios-14-pack-user-interface-icons-2365231.png?f=webp&w=512" alt="App 1 Name Icon">
+            </div>
+            <span class="app-name">Mitarbeiterportal</span>
+        </a>
+
+
+
+<!--          APP 2          -->
+
+
+        <a href="https://start.next.edeka" class="app">
+            <div class="app-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/4720/4720451.png" alt="App 2 Name Icon">
+            </div>
+            <span class="app-name">Edeka Next</span>
+        </a>
+
+
+
+<!--          APP 3          -->
+
+
+        <a href="https://idp.edeka.de/auth/realms/NEMO_SHOP_MANAGEMENT/protocol/openid-connect/auth?client_id=nemo&redirect_uri=https%3A%2F%2Fshopmanagement.prod.nemo.farb.regal.digital%2Fpin_page&state=eedb7a5e-67ca-4ad4-95a6-69135bf7c12c&response_mode=fragment&response_type=code&scope=openid&nonce=70242f0b-e195-4c05-897f-a6db3c247598&max_age=260" class="app">
+            <div class="app-icon">
+                <img src="https://cdn2.iconfinder.com/data/icons/seo-and-internet-round/128/6-1024.png" alt="App 3 Name Icon">
+            </div>
+            <span class="app-name">Shop Management</span>
+        </a>
+
+
+<!--          APP 4          -->
+
+
+        <a href="https://www.herkulesmarkt.de/standorte/bad-arolsen/lebensmittel/angebote" class="app">
+            <div class="app-icon">
+                <img src="https://automatech.com/wp-content/uploads/Brochure-ICON-02-768x768.png" alt="App 4 Name Icon">
+            </div>
+            <span class="app-name">Werbung SBW</span>
+        </a>
+
+
+
+<!--          APP 5          -->
+
+
+        <a href="https://www.herkulesbaumarkt.de/standorte/bad-arolsen/bau-garten/angebote" class="app">
+            <div class="app-icon">
+                <img src="https://cdn-icons-png.flaticon.com/256/8499/8499470.png" alt="App 5 Name Icon">
+            </div>
+            <span class="app-name">Werbung BG</span>
+        </a>
+
+
+
+<!--          APP 6          -->
+
+
+        <a href="" class="app">
+            <div class="app-icon">
+                <img src="">
+            </div>
+            <span class="app-name"></span>
+        </a>
+
+
+
+<!--          APP 7          -->
+
+
+        <a href="https://hagebau-ekataloge.otterbach.de/gartengestaltung/epaper/ausgabe.pdf" class="app">
+            <div class="app-icon">
+                <img src="https://files.softicons.com/download/application-icons/round-app-icons-by-ampeross/png/128x128/Books.png" alt="App 7 Name Icon">
+            </div>
+            <span class="app-name">HIG</span>
+        </a>
+
+
+
+<!--          APP 8          -->
+
+
+        <a href="https://www.hagebau.de/assets/download/17/WEB-PDF_GBS_96_FS25_HBM_72dpi-43717.pdf?srsltid=AfmBOoqOCPjWZG7RNEp8emRhNgS7vXArVRMsu9s4YKOyXu0zQ7Y9-I7f" class="app">
+            <div class="app-icon">
+                <img src="https://files.softicons.com/download/application-icons/round-app-icons-by-ampeross/png/128x128/Books.png" alt="App 8 Name Icon">
+            </div>
+            <span class="app-name">GBS</span>
+        </a>
+
+
+
+<!--          APP 9          -->
+
+
+        <a href="LINK_FUER_APP_9" class="app">
+            <div class="app-icon">
+                <img src="" alt="">
+            </div>
+            <span class="app-name"></span>
+        </a>
+
+
+
+<!--          APP 10          -->
+
+
+        <a href="LINK_FUER_APP_10" class="app">
+            <div class="app-icon">
+                <img src="" alt="">
+            </div>
+            <span class="app-name"></span>
+        </a>
+
+
+
+<!--          APP 11          -->
+
+
+        <a href="LINK_FUER_APP_11" class="app">
+            <div class="app-icon">
+                <img src="" alt="">
+            </div>
+            <span class="app-name"></span>
+        </a>
+
+
+
+<!--          APP 12          -->
+
+
+        <a href="LINK_FUER_APP_12" class="app">
+            <div class="app-icon">
+                <img src="" alt="">
+            </div>
+            <span class="app-name"></span>
+        </a>
+
+
+
+<!--          APP 13          -->
+
+
+        <a href="https://www.notion.so/nelson1897/Aktuelles-1fbb959eda6e803dac53f313f4449dc9?pvs=4" class="app">
+            <div class="app-icon">
+                <img src="https://cdn2.iconfinder.com/data/icons/flat-set-2/64/flat_set_2-07-1024.png" alt="">
+            </div>
+            <span class="app-name">Aktuelles</span>
+        </a>
+
+
+
+<!--          APP 14          -->
+
+
+        <a href="https://www.notion.so/nelson1897/Links-1fbb959eda6e80b88544fd9db9b6be20?pvs=4" class="app">
+            <div class="app-icon">
+                <img src="https://images.icon-icons.com/1526/PNG/512/checklist_106575.png" alt="">
+            </div>
+            <span class="app-name">Links</span>
+        </a>
+
+
+
+<!--          APP 15          -->
+
+
+        <a href="https://www.notion.so/nelson1897/Warengruppen-1fbb959eda6e80f7a946dd9c55cda771?pvs=4" class="app">
+            <div class="app-icon">
+                <img src="https://cdn-icons-png.freepik.com/256/10420/10420699.png?semt=ais_hybrid" alt="">
+            </div>
+            <span class="app-name">Warengruppen</span>
+        </a>
+        
+        
+        
+        
+        
+        
+    </div> </body>
+</html>
+
